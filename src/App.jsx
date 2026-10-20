@@ -1,9 +1,12 @@
 import StudentCard from './conpounment/StudentCard.jsx';
 import './App.css';
 import image from './assets/react.svg';
+import { useState } from 'react';
 
-const etudiants = [
-  {
+
+function App() {
+  const [etudiants,setEtudiands]=useState([
+    {
     nom: 'Bzeouich',
     prenom: 'Rayen',
     email: 'rayenbzeouich69@gmail.com',
@@ -28,7 +31,7 @@ const etudiants = [
   {
     nom: 'BEN RABEA',
     prenom: 'Youssef',
-    email: 'youssef@example.com',
+    email: 'youssef@gmail.com',
     telephone: '20123456',
     filiere: 'Informatique',
     annee: '2026-2027',
@@ -36,26 +39,44 @@ const etudiants = [
     ville: 'Bkalta',
     image: image
   }
-];
+    ]);
+function ajouteEtudiants(){
+    const nouvelEtudiants = {
+    nom:'bzeouich',
+    prenom:'bilel',
+    tel:'29334587',
+     filiere: 'Informatique',
+    annee: '2026-2027',
+    groupe: 'LCS2-GLSI_D',
+    ville: 'Bkalta',
+    email:'bilelbzeouich@gmail.com',
+    image:image
+  };
+  setEtudiands([...etudiants,nouvelEtudiants]);
+  }
 
-function App() {
   return (
+    <>
     <div className="cartes-container">
       {etudiants.map((etudiant) => (
         <StudentCard
           key={etudiant.email}
           prenom={etudiant.prenom}
           nom={etudiant.nom}
-          email={etudiant.email}
           telephone={etudiant.telephone}
           filiere={etudiant.filiere}
           anneeEtude={etudiant.annee}
           groupe={etudiant.groupe}
           ville={etudiant.ville}
           image={etudiant.image}
+          email={etudiant.email}
         />
       ))}
     </div>
+      <div className='actions'>
+      <button onClick={ajouteEtudiants}>+ ajouter un etudiant</button>
+    </div>
+    </>
   );
 }
 export default App;
