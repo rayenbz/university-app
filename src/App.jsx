@@ -1,31 +1,59 @@
-import image from './assets/react.svg'
+import StudentCard from './conpounment/StudentCard.jsx';
+import './App.css';
+
+const etudiants = [
+  {
+    nom: 'Bzeouich',
+    prenom: 'Rayen',
+    email: 'rayenbzeouich69@gmail.com',
+    telephone: '29050720',
+    filiere: 'Informatique',
+    annee: '2026-2027',
+    groupe: 'LCS2-GLSI_D',
+    ville: 'Moknine',
+    image: './assets/react.svg'
+  },
+  {
+    nom: 'Boubaker',
+    prenom: 'Slim',
+    email: 'slim@example.com',
+    telephone: '20123456',
+    filiere: 'Informatique',
+    annee: '2026-2027',
+    groupe: 'LCS2-GLSI_D',
+    ville: 'Mahdia',
+    image: './assets/react.svg'
+  },
+  {
+    nom: 'BEN RABEA',
+    prenom: 'Youssef',
+    email: 'youssef@example.com',
+    telephone: '20123456',
+    filiere: 'Informatique',
+    annee: '2026-2027',
+    groupe: 'LCS2-GLSI_D',
+    ville: 'Bkalta',
+    image: './assets/react.svg'
+  }
+];
+
 function App() {
-  const fich={
-      nom:'rayen',
-      prenom:'bzeouich',
-      email:'rayenbzeouich69@gmail.com',
-      telephone:'29050720',
-      fiere:'Informatique',
-      anne:'2026-2027',
-      groupe:'LCS2-GLSI_D',                 
-      ville:'moknine',
-      img:image
-  };
-  
   return (
-    <div>
-      <h1>Fiche etudiant</h1>
-      <img src={fich.img} alt='eroor' width={80} height={80}></img>
-      <p>Nom : {fich.nom}</p>
-      <p>Prenom : {fich.prenom}</p>
-      <p>Email : {fich.email}</p>
-      <p>Telephone : {fich.telephone}</p>
-      <p>Filiere :{fich.fiere}</p>
-      <p>Annee d'etude :{fich.anne}</p>
-      <p>Groupe :{fich.groupe}</p>
-      <p>Ville :{fich.ville}</p>
-      <a href={'mailto:${fich.email}'}>email</a>
-      
+    <div className="cartes-container">
+      {etudiants.map((etudiant) => (
+        <StudentCard
+          key={etudiant.email}
+          prenom={etudiant.prenom}
+          nom={etudiant.nom}
+          email={etudiant.email}
+          telephone={etudiant.telephone}
+          filiere={etudiant.filiere}
+          anneeEtude={etudiant.annee}
+          groupe={etudiant.groupe}
+          ville={etudiant.ville}
+          image={etudiant.image}
+        />
+      ))}
     </div>
   );
 }
