@@ -1,5 +1,6 @@
 import StudentCard from './conpounment/StudentCard.jsx';
 import './App.css';
+import image from './assets/react.svg';
 
 const etudiants = [
   {
@@ -11,7 +12,7 @@ const etudiants = [
     annee: '2026-2027',
     groupe: 'LCS2-GLSI_D',
     ville: 'Moknine',
-    image: './assets/react.svg'
+    image: image
   },
   {
     nom: 'Boubaker',
@@ -22,7 +23,7 @@ const etudiants = [
     annee: '2026-2027',
     groupe: 'LCS2-GLSI_D',
     ville: 'Mahdia',
-    image: './assets/react.svg'
+    image: image
   },
   {
     nom: 'BEN RABEA',
@@ -33,7 +34,7 @@ const etudiants = [
     annee: '2026-2027',
     groupe: 'LCS2-GLSI_D',
     ville: 'Bkalta',
-    image: './assets/react.svg'
+    image: image
   }
 ];
 
