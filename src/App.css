@@ -1,3 +1,73 @@
+.actions {
+  display: flex;
+  justify-content: center;
+  padding: 24px 20px 0;
+  background-color: #f3f4f6;
+}
+
+.actions button,
+.carte-actions button {
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 14px;
+  background-color: #2563eb;
+  color: white;
+}
+
+.actions button:hover,
+.carte-actions button:hover {
+  background-color: #1d4ed8;
+}
+
+.carte-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.btn-modifier {
+  background-color: #d97706 !important;
+}
+
+.btn-modifier:hover {
+  background-color: #b45309 !important;
+}
+
+.btn-annuler {
+  background-color: #6b7280 !important;
+}
+
+.btn-annuler:hover {
+  background-color: #4b5563 !important;
+}
+
+.formulaire-modification {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formulaire-modification input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.btn-supprimer {
+  background-color: #dc2626 !important;
+}
+
+.btn-supprimer:hover {
+  background-color: #b91c1c !important;
+}
+
 .cartes-container {
   display: flex;
   justify-content: center;
@@ -5,7 +75,7 @@
   flex-wrap: wrap;
   gap: 25px;
   padding: 40px 20px;
-  min-height: 100vh;
+  min-height: calc(100vh - 80px);
   background-color: #f3f4f6;
   box-sizing: border-box;
 }

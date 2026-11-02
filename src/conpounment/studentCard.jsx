@@ -3,8 +3,16 @@ import { useState } from "react";
 function StudentCard(props) {
   const [coordonneesVisibles, setCoordonneesVisibles] = useState(false);
 
-  function basculerCoordonnees() {
-    setCoordonneesVisibles(!coordonneesVisibles);
+  function modifier() {
+    const champ = prompt(
+      "Quel champ voulez-vous modifier ? (nom, prenom, filiere, anneeEtude, groupe, ville, email, telephone)"
+    );
+    if (!champ) return;
+
+    const valeur = prompt("Nouvelle valeur pour " + champ + " :");
+    if (valeur === null || valeur === "") return;
+
+    props.onModify(props.id, { [champ]: valeur });
   }
 
   return (
@@ -17,15 +25,26 @@ function StudentCard(props) {
       <p>Annee d'etude : {props.anneeEtude}</p>
       <p>Groupe : {props.groupe}</p>
       <p>Ville : {props.ville}</p>
+
       {coordonneesVisibles && (
         <>
           <p>Email : {props.email}</p>
           <p>Telephone : {props.telephone}</p>
         </>
       )}
-      <button type="button" onClick={basculerCoordonnees}>
-        {coordonneesVisibles ? "Masquer" : "Afficher"}
-      </button>
+
+      <div className="carte-actions">
+        <button onClick={() => setCoordonneesVisibles(!coordonneesVisibles)}>
+          {coordonneesVisibles ? "Masquer" : "Afficher"}
+        </button>
+        <button className="btn-modifier" onClick={modifier}>
+          Modifier
+        </button>
+        <button className="btn-supprimer" onClick={() => props.onDelete(props.id)}>
+          Supprimer
+        </button>
+      </div>
+
       <p>
         <a href={`mailto:${props.email}`}>Contacter moi</a>
       </p>
