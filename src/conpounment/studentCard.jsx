@@ -49,6 +49,7 @@ function StudentCard(props) {
         <a href={`mailto:${props.email}`}>Contacter moi</a>
       </p>
     </div>
+    
   );
 }
 

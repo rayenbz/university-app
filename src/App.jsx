@@ -2,7 +2,6 @@ import StudentCard from "./conpounment/studentCard.jsx";
 import "./App.css";
 import image from "./assets/react.svg";
 import { useState } from "react";
-
 function App() {
   const [etudiants, setEtudiants] = useState([
     {
