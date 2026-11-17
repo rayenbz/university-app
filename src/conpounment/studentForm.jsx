@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./studentForm.css";
 function StudentForm({ajouterEtudiant}) {
   const [nom, setNom] = useState("");
   const [prenom, setPrenom] = useState("");

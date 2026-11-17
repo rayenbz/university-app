@@ -59,7 +59,6 @@ function App() {
   function modifierEtudiant(etudiant) {
       setEtudiantModifier(etudiant);
   }
-
   return (
     <>
       <StudentForm 
