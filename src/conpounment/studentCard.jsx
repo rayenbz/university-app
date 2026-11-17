@@ -37,7 +37,7 @@ function StudentCard(props) {
         <button onClick={() => setCoordonneesVisibles(!coordonneesVisibles)}>
           {coordonneesVisibles ? "Masquer" : "Afficher"}
         </button>
-        <button className="btn-modifier" onClick={modifier}>
+        <button className="btn-modifier" onClick={() => modifier(props.etudiant)}>
           Modifier
         </button>
         <button className="btn-supprimer" onClick={() => props.onDelete(props.id)}>

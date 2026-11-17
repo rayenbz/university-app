@@ -2,7 +2,9 @@ import StudentCard from "./conpounment/studentCard.jsx";
 import "./App.css";
 import image from "./assets/react.svg";
 import { useState } from "react";
+import StudentForm from "./conpounment/studentForm.jsx";
 function App() {
+  const [etudiantModifier,setEtudiantModifier]=useState(null);
   const [etudiants, setEtudiants] = useState([
     {
       id: 1,
@@ -42,41 +44,28 @@ function App() {
     },
   ]);
 
-  function ajouterEtudiant() {
-    const nouvelEtudiant = {
-      id: Date.now(),
-      nom: "Bzeouich",
-      prenom: "Bilel",
-      telephone: "29334587",
-      filiere: "Informatique",
-      annee: "2026-2027",
-      groupe: "LCS2-GLSI_D",
-      ville: "Bkalta",
-      email: "bilelbzeouich@gmail.com",
-      image: image,
-    };
-    setEtudiants([...etudiants, nouvelEtudiant]);
+  function ajouterEtudiant(nouvelEtudiant){
+    const etudiantAvecId={
+      ...nouvelEtudiant,
+      id:Date.now(),
+    }
+    setEtudiants((ancinesEtudiants) => [...ancinesEtudiants,etudiantAvecId]);
   }
 
   function supprimerEtudiant(id) {
     setEtudiants((liste) => liste.filter((etudiant) => etudiant.id !== id));
   }
 
-  function modifierEtudiant(id, valeurs) {
-    setEtudiants((liste) =>
-      liste.map((etudiant) =>
-        etudiant.id === id ? { ...etudiant, ...valeurs } : etudiant
-      )
-    );
+  function modifierEtudiant(etudiant) {
+      setEtudiantModifier(etudiant);
   }
 
   return (
     <>
-      <div className="actions">
-        <button type="button" onClick={ajouterEtudiant}>
-          + Ajouter un etudiant
-        </button>
-      </div>
+      <StudentForm 
+          key={etudiantModifier ? etudiantModifier.id :"nouveau"} 
+          ajouterEtudiant={ajouterEtudiant}
+          etudiantModifier={etudiantModifier} />
       <div className="cartes-container">
         {etudiants.map((etudiant) => (
           <StudentCard

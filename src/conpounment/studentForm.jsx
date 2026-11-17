@@ -1,7 +1,5 @@
-
 import { useState } from "react";
-
-function StudentForm(props) {
+function StudentForm({ajouterEtudiant}) {
   const [nom, setNom] = useState("");
   const [prenom, setPrenom] = useState("");
   const [email, setEmail] = useState("");
@@ -26,9 +24,8 @@ function StudentForm(props) {
       ville,
       image
     };
-
-    props.ajouterEtudiant(nouvelEtudiant);
-
+console.log("nouvelle etudiant ajouter",nouvelEtudiant);
+    ajouterEtudiant(nouvelEtudiant);
     setNom("");
     setPrenom("");
     setEmail("");
@@ -128,7 +125,6 @@ function StudentForm(props) {
         onChange={(e) => setVille(e.target.value)}
         required
       />
-
       <label htmlFor="image">Photo :</label>
       <input
         type="file"
@@ -136,7 +132,6 @@ function StudentForm(props) {
         accept="image/*"
         onChange={choisirImage}
       />
-
       <button type="submit">Ajouter</button>
 
     </form>
